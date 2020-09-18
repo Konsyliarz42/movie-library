@@ -1,10 +1,10 @@
 #================================================================
 class Movie:
-    def __init__(self, title, year, genre, views):
+    def __init__(self, title, year, genre):
         self.title  = title
-        self.year   = year
+        self.year   = int(year)
         self.genre  = genre
-        self.views  = int(views)
+        self.views  = 0
 
 
     def __repr__(self):
@@ -16,11 +16,11 @@ class Movie:
 
 #================================================================
 class Series(Movie):
-    def __init__(self, episode, season, *args):
-        super().__init__(*args)
+    def __init__(self, episode, season, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         self.episode    = str(episode)
-        self.season     = season
+        self.season     = str(season)
 
 
     @property
@@ -51,12 +51,19 @@ class Series(Movie):
 
     #--------------------------------
     def how_many_episodes(self, library):
-        quantity = 0
+        seasons = list()
+        episodes = list()
 
-        for x in library:
-            if x.title == self.title:
-                if x.season == self.season:
-                    quantity += 1
+        for obj in library:
+            if obj.title == self.title:
+                y = int(obj.season)
 
-        return quantity
+                if y not in seasons:
+                    seasons.append(y)
+                    episodes.append(1)
 
+                else:
+                    x = seasons.index(y)
+                    episodes[x] += 1
+
+        return seasons, episodes
