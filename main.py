@@ -1,5 +1,5 @@
 from random import randint, randrange
-from classes import Movie, Series
+from classes import Movie, Series, Genre
 
 #--------------------------------
 def get_movies(library):
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     library = list()
 #    library.append(Movie("x", '1999', 'thriller'))
 #    library.append(Movie("A", '2000', 'thriller'))
-    library.append(Series(title='y', year=2004, genre='Comedy', season=1, episode=2))
+    library.append(Series(title='y', year=2004, genre=Genre.Comedy, season=1, episode=2))
 
 #    print(get_movies(library))
 #    print(get_series(library))

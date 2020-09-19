@@ -40,14 +40,10 @@ class Movie:
 
     @genre.setter
     def genre(self, value):
-        value = value.strip()
-        value = value.capitalize()
-        value = value.replace(' ', '_')
-        self._genre = Genre(0).name
-
-        for gen in Genre:
-            if gen.name == value:
-                self._genre = gen.name
+        if type(value) == Genre:
+            self._genre = value
+        else:
+            self._genre = Genre(0)
 
     def __repr__(self):
         return f"{self.title} ({self.year})"
