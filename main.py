@@ -65,10 +65,9 @@ def add_season(title, year, genre, season, episodes_in_season):
 #================================================================
 if __name__ == "__main__":
     library = list()
-    
 #    library.append(Movie("x", '1999', 'thriller'))
 #    library.append(Movie("A", '2000', 'thriller'))
-#    library.append(Series(title='y', year=2004, genre='comedy', season=1, episode=2))
+    library.append(Series(title='y', year=2004, genre='Comedy', season=1, episode=2))
 
 #    print(get_movies(library))
 #    print(get_series(library))
@@ -82,10 +81,12 @@ if __name__ == "__main__":
 #    print(top_titles(library))
 
 
-    for episode in add_season('B', '2000', 'comedy', '1', 20):
-        library.append(episode)
+#    for episode in add_season('B', 2000, 'comedy', 1, 20):
+#        library.append(episode)
 
 #    for episode in add_season('B', '2000', 'comedy', '2', 20):
 #        library.append(episode)
 
-    print(library[0].how_many_episodes(library))
+#    print(library[0].how_many_episodes(library))
+
+    print(library[0].genre)
