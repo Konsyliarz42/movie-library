@@ -43,7 +43,7 @@ class Movie:
         if type(value) == Genre:
             self._genre = value
         else:
-            self._genre = Genre(0)
+            self._genre = Genre.undefined
 
     def __repr__(self):
         return f"{self.title} ({self.year})"
@@ -51,15 +51,6 @@ class Movie:
     #--------------------------------
     def play(self):
         self.views += 1
-
-#================================================================
-def printed_number(number):
-    if number < 10:
-        number = str(number).zfill(2)
-    else:
-        number = str(number)
-
-    return number
 
 #================================================================
 class Series(Movie):
@@ -71,10 +62,7 @@ class Series(Movie):
 
 
     def __repr__(self):
-        episode = printed_number(self.episode)
-        season  = printed_number(self.season)
-
-        return f"{self.title} S{season}E{episode}"
+        return f"{self.title} S{self.season:02d}E{self.episode:02d}"
 
     #--------------------------------
     def how_many_episodes(self, library):
